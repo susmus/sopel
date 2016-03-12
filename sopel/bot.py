@@ -257,10 +257,12 @@ class Sopel(irc.Bot):
             self.write(['JOIN', channel, password])
 
     def msg(self, recipient, text, max_messages=1):
+        return
         # Deprecated, but way too much of a pain to remove.
         self.say(text, recipient, max_messages)
 
     def say(self, text, recipient, max_messages=1):
+        return
         """Send ``text`` as a PRIVMSG to ``recipient``.
 
         In the context of a triggered callable, the ``recipient`` defaults to
@@ -338,6 +340,7 @@ class Sopel(irc.Bot):
             self.msg(recipient, excess, max_messages - 1)
 
     def notice(self, text, dest):
+        return
         """Send an IRC NOTICE to a user or a channel.
 
         Within the context of a triggered callable, ``dest`` will default to
@@ -347,6 +350,7 @@ class Sopel(irc.Bot):
         self.write(('NOTICE', dest), text)
 
     def action(self, text, dest):
+        return
         """Send ``text`` as a CTCP ACTION PRIVMSG to ``dest``.
 
         The same loop detection and length restrictions apply as with
@@ -359,6 +363,7 @@ class Sopel(irc.Bot):
         self.say('\001ACTION {}\001'.format(text), dest)
 
     def reply(self, text, dest, reply_to, notice=False):
+        return
         """Prepend ``reply_to`` to ``text``, and send as a PRIVMSG to ``dest``.
 
         If ``notice`` is ``True``, send a NOTICE rather than a PRIVMSG.
